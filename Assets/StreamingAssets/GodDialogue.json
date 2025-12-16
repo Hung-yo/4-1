@@ -1,0 +1,33 @@
+{
+  "dialogues": [
+    {
+      "type": "Repeat",
+      "lines": [
+        "How boring... I've already seen you die this way before",
+        "Be more creative, and you'll be rewarded in return"
+      ]
+    },
+    {
+      "type": "Milestone_5",
+      "lines": [
+        "By the way.. I've left you a gift for your hard work thus far",
+        "Keep entertaining me, and I'll keep providing you with tools",
+        "Now show me what you can do"
+      ]
+    },
+    {
+      "type": "Cactus",
+      "lines": [
+        "Hah, slow and painful those pricks must've been",
+        "Ok I'm bored, back to life with you"
+      ]
+    },
+    {
+      "type": "Lava",
+      "lines": [
+        "Bah, lava is boring, it kills far too quick",
+        "I prefer when real suffering can take place"
+      ]
+    }
+  ]
+}
