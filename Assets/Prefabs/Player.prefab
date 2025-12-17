@@ -150,6 +150,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba2b921602d4dfd499d8a7949da59851, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CameraController
+--- !u!1 &3523598785244650873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6228062656781720201}
+  m_Layer: 0
+  m_Name: Marker
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6228062656781720201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3523598785244650873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.972, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5889072521915713204}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3670421721204266972
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,6 +219,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4030439225312217419}
+  - {fileID: 6228062656781720201}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &55931244981960216
@@ -281,8 +313,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ba597c944a6fd84cb401ab28f4f13cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
+  rigidBody: {fileID: 3742917848355210289}
   baseSpeed: 5
   moveSpeed: 0
+  jumpHeight: 25
+  isGrounded: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  groundCheck: {fileID: 6228062656781720201}
+  groundCheckDistance: 0.2
   health: {fileID: 0}
   death: {fileID: 0}
 --- !u!114 &2723489438518371087

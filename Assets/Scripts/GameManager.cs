@@ -4,6 +4,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
+    public TotalDeathsManager totalDeathsManager;
     public Player player;
     public static bool isPaused = false;
     public static bool godSceneActive = false;
@@ -14,6 +15,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameplayUI;
     public GameObject creditsUI;
     public GameObject workbenchUI;
+    public GameObject tutorialUI;
     public GameObject takeDamageUI;
     public GameObject godScene;
     //public static AudioSource backgroundMusic;
@@ -32,20 +34,14 @@ public class GameManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        MainMenu();
         //backgroundMusic = GetComponent<AudioSource>();
-        pauseMenuUI.SetActive(false);
-        titleScreenUI.SetActive(true);
-        gameplayUI.SetActive(false);
-        creditsUI.SetActive(false);
-        godScene.SetActive(false);
-        takeDamageUI.SetActive(false);
-        workbenchUI.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && isGameStarted && !godSceneActive)
         {
             if (isPaused)
             {
@@ -64,6 +60,20 @@ public class GameManager : MonoBehaviour
         isGameStarted = true;
         titleScreenUI.SetActive(false);
         gameplayUI.SetActive(true);
+    }
+
+    public void MainMenu()
+    {
+        pauseMenuUI.SetActive(false);
+        titleScreenUI.SetActive(true);
+        gameplayUI.SetActive(false);
+        creditsUI.SetActive(false);
+        godScene.SetActive(false);
+        takeDamageUI.SetActive(false);
+        workbenchUI.SetActive(false);
+        isGameStarted = false;
+        isPaused = false;
+        totalDeathsManager.UpdateTotalDeathsText();
     }
 
     public void UnpauseGame()
@@ -88,6 +98,9 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            takeDamageUI.SetActive(false);
+            isPaused = false;
+            pauseMenuUI.SetActive(false);
             godSceneActive = true;
             godScene.SetActive(true);
             player.GetComponentInChildren<Camera>().enabled = false;
@@ -103,6 +116,16 @@ public class GameManager : MonoBehaviour
     public void HideWorkbenchUI()
     {
         workbenchUI.SetActive(false);
+    }
+
+    public void DisplayTutorialUI()
+    {
+        tutorialUI.SetActive(true);
+    }
+
+    public void HideTutorialUI()
+    {
+        tutorialUI.SetActive(false);
     }
 
     public void DisplayCredits()

@@ -6,14 +6,16 @@ public class Health : MonoBehaviour
     public float maxHealth = 10f;
     public float currentHealth;
     public bool isInstaKill = false;
-    public bool showTakeDamageUI = false;
+    public bool isPlayer = false;
     public float dieDelay = 0.5f;
     public float takeDamageUIDuration = 2f;
     public GameManager gameManager;
+    public Player player;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        player = gameManager.player;
         gameManager = GameManager.gameManager;
         currentHealth = maxHealth;
     }
@@ -34,15 +36,37 @@ public class Health : MonoBehaviour
         if (currentHealth <= 0)
         {
             currentHealth = 0;
-            StartCoroutine(DeathManager.deathManager.HandleDeathCoroutine(source));
+
+            if (isPlayer)
+            {
+                player.ToggleKinematic(true);
+                StartCoroutine(DeathManager.deathManager.HandleDeathCoroutine(source));
+            }
             Die();
         }
         else
         {
-            if (showTakeDamageUI)
+            if (isPlayer)
             {
                 StartCoroutine(TakeDamageUI());
             }
+        }
+    }
+
+    public void TakeDamage(float tickAmount, int duration, string source)
+    {
+        StartCoroutine(TakeDamageOverTime(tickAmount, duration, source));
+    }
+
+    private IEnumerator TakeDamageOverTime(float tickAmount, int duration, string source)
+    {
+        while (duration > 0)
+        {
+            yield return new WaitForSeconds(duration);
+            if (currentHealth == 0)
+                break;
+            TakeDamage(tickAmount, source);
+            duration--;
         }
     }
 
@@ -86,7 +110,7 @@ public class Health : MonoBehaviour
         Death death = GetComponent<Death>();
         if (death != null)
         {
-            if (showTakeDamageUI)
+            if (isPlayer)
             {
                 StartCoroutine(DieWithDelay(dieDelay));
             }

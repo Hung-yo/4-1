@@ -3,8 +3,8 @@ using UnityEngine;
 public class DamageOnCollision : MonoBehaviour
 {
     public int damageAmount = 3;
-    public bool hasCollided = false;
-    public bool destroyOnCollision = false;
+    private bool hasCollided = false;
+    private bool destroyOnCollision = false;
     public string damageSource = "Cactus";
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

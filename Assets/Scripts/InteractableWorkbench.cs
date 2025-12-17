@@ -25,18 +25,14 @@ public class InteractableWorkbench : MonoBehaviour, IInteractable
         if (distanceVector.magnitude < interactionRange)
         {
             isInRange = true;
+            interactableText.SetActive(true);
+            Vector3 targetPosition = new Vector3(player.transform.position.x, interactableText.transform.position.y, player.transform.position.z);
+            interactableText.transform.LookAt(targetPosition);
+            interactableText.transform.Rotate(0, 180, 0);
         }
         else
         {
             isInRange = false;
-        }
-
-        if (isInRange)
-        {
-            interactableText.SetActive(true);
-        }
-        else
-        {
             interactableText.SetActive(false);
             if (isUsingWorkbench)
             {

@@ -25,5 +25,6 @@ public class DeathRecenter : Death
         // Sets pawn rotation and speed back to 0 when respawning
         transform.position = spawnPoint;
         health.currentHealth = health.maxHealth;
+        player.ToggleKinematic(false);
     }
 }

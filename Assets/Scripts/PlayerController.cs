@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.player == null || GameManager.isPaused || !GameManager.isGameStarted || GameManager.godSceneActive)
+        if (gameManager.player == null || GameManager.isPaused || !GameManager.isGameStarted || GameManager.godSceneActive || player.health.currentHealth == 0)
         {
             return;
         }

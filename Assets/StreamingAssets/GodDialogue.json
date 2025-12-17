@@ -1,6 +1,17 @@
 {
   "dialogues": [
     {
+      "type": "Tutorial",
+      "lines": [
+        "Hello there, mortal. And welcome to hell",
+        "There is no way out, you're stuck here eternally",
+        "Your only passtime is entertaining me",
+        "How you ask? By dying uniquely",
+        "Die in enough different ways, and I have gifts awaiting",
+        "I'm bored now, so back to life with you. Don't disappoint me"
+      ]
+    },
+    {
       "type": "Repeat",
       "lines": [
         "How boring... I've already seen you die this way before",
@@ -27,6 +38,26 @@
       "lines": [
         "Bah, lava is boring, it kills far too quick",
         "I prefer when real suffering can take place"
+      ]
+    },
+    {
+      "type": "Beehive",
+      "lines": [
+        "Death by a hundred stings",
+        "It's funny how swollen your body got"
+      ]
+    },
+    {
+      "type": "Fall_Damage",
+      "lines": [
+        "Heh, splat"
+      ]
+    },
+    {
+      "type": "RedMushroom",
+      "lines": [
+        "Ok, kind of funny how you just keeled over and died",
+        "Did the mushroom at least taste good?"
       ]
     }
   ]
