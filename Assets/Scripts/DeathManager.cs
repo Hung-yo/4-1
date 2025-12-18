@@ -122,6 +122,7 @@ public class DeathManager : MonoBehaviour
             yield return StartCoroutine(godTextManager.ShowGodDialogue(recentDeathType, godTextManager.delay));
             if (totalUniqueDeaths == 5)
             {
+                gameManager.PlaceWorkbench();
                 yield return StartCoroutine(godTextManager.ShowGodDialogue("Milestone_5", godTextManager.delay));
             }
         }

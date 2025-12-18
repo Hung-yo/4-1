@@ -18,6 +18,7 @@ public class GameManager : MonoBehaviour
     public GameObject tutorialUI;
     public GameObject takeDamageUI;
     public GameObject godScene;
+    public GameObject craftingBench;
     //public static AudioSource backgroundMusic;
     void Awake()
     {
@@ -106,6 +107,10 @@ public class GameManager : MonoBehaviour
             player.GetComponentInChildren<Camera>().enabled = false;
             player.GetComponentInChildren<AudioListener>().enabled = false;
         }
+    }
+    public void PlaceWorkbench()
+    {
+        craftingBench.SetActive(true);
     }
 
     public void DisplayWorkbenchUI()
