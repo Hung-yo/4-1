@@ -22,7 +22,6 @@ public class DeathRecenter : Death
     public override void Die()
     {
         Debug.Log("Player Died, teleported to origin");
-        // Sets pawn rotation and speed back to 0 when respawning
         transform.position = spawnPoint;
         health.currentHealth = health.maxHealth;
         player.ToggleKinematic(false);
